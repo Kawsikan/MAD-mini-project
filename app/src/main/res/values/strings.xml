@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Catalogue</string>
+    <string name="Msg1">Welcome to Catalogue</string>
+    <string name="Msg2">We help you take care everything</string>
+    <string name="Msg3">Use Now</string>
+    <string name="Msg4">Login</string>
+    <string name="Msg5">Catalogue</string>
+    <string name="Msg6">Sign in with Google</string>
+
+
 </resources>
