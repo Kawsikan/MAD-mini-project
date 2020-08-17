@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Catalogue</string>
+    <string name="Diarymsg1">Diary</string>
+    <string name="Diarymsg2">My Diary</string>
+    <string name="Diarymsg3">ADD</string>
+    <string name="Diarymsg4">Add Diary</string>
+    <string name="Diarymsg5">Note</string>
+    <string name="Diarymsg6">What happen</string>
+    <string name="Diarymsg7">Would You Like To Add Memory</string>
+    <string name="Diarymsg8">Add Image</string>
+    <string name="Diarymsg9">Save</string>
+    <string name="Diarymsg10">Date</string>
+
 </resources>
