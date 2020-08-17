@@ -15,8 +15,10 @@
     <string name="Msg13">save</string>
     <string name="Msg14">New Task</string>
     <string name="Msg15">Task</string>
-
-
+    <string name="Msg16">Catalogue</string>
+    <string name="Msg17">Task</string>
+    <string name="Msg18">Diary</string>
+    <string name="Msg19">WishList</string>
 
 
 </resources>
