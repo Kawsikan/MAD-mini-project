@@ -10,5 +10,14 @@
     <string name="Diarymsg8">Add Image</string>
     <string name="Diarymsg9">Save</string>
     <string name="Diarymsg10">Date</string>
-
+    <string name="wishlist1">Add Wishlist</string>
+    <string name="wishlist2">Your Wish List</string>
+    <string name="wishlist3">Add Your WishList Here</string>
+    <string name="wishlist4">Enter Your Wish</string>
+    <string name="wishlist5">Importance</string>
+    <string name="wishlist6">Why Do You Prefer</string>
+    <string name="wishlist7">Save</string>
+    <string name="wishlist8">WishList</string>
+    <string name="wishlist9">Your WishList</string>
+    <string name="wishlist10">ADD</string>
 </resources>
