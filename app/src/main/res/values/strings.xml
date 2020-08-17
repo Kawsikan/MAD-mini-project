@@ -6,6 +6,17 @@
     <string name="Msg4">Login</string>
     <string name="Msg5">Catalogue</string>
     <string name="Msg6">Sign in with Google</string>
+    <string name="Msg7">My Tasks</string>
+    <string name="Msg8">Add</string>
+    <string name="Msg9">Task</string>
+    <string name="Msg10">Enter Task</string>
+    <string name="Msg11">Remind me</string>
+    <string name="Msg12">Date</string>
+    <string name="Msg13">save</string>
+    <string name="Msg14">New Task</string>
+    <string name="Msg15">Task</string>
+
+
 
 
 </resources>

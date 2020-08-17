@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="236dp"
         android:text="@string/Msg1"
-        android:textColor="#2196F3"
+        android:textColor="#3F51B5"
         android:textColorHint="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -38,9 +38,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="209dp"
+        android:layout_width="210dp"
         android:layout_height="54dp"
-
         android:background="#775ada"
         android:text="@string/Msg3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +52,7 @@
     <Button
         android:id="@+id/button2"
         android:layout_width="210dp"
-        android:layout_height="60dp"
+        android:layout_height="54dp"
         android:background="#c5e3f6"
         android:text="@string/Msg4"
         app:layout_constraintBottom_toBottomOf="parent"
