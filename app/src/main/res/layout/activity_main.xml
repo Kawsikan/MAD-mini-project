@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafaf6"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="149dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="42dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconnew" />
 
     <TextView
         android:id="@+id/textView"
@@ -36,7 +46,7 @@
         android:id="@+id/button"
         android:layout_width="210dp"
         android:layout_height="54dp"
-        android:background="#775ada"
+        android:background="#FF1493"
         android:text="@string/Msg3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +59,7 @@
         android:id="@+id/button2"
         android:layout_width="210dp"
         android:layout_height="54dp"
-        android:background="#c5e3f6"
+        android:background="#DF00FE"
         android:text="@string/Msg4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
