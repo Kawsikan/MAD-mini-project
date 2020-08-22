@@ -20,8 +20,8 @@
 
         </activity>
 
-        <activity android:name=".TaskListActivity" >
-
+        <activity android:name=".TaskListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 

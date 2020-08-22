@@ -18,5 +18,14 @@
     <string name="Msg18">Diary</string>
     <string name="Msg19">WishList</string>
 
+    <string name="MyDiary">My Diary</string>
+
+    <string name="MyWishList">My WishList</string>
+    <string name="NewWish">New</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
 
 </resources>
