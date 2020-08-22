@@ -46,7 +46,7 @@
         android:id="@+id/button"
         android:layout_width="210dp"
         android:layout_height="54dp"
-        android:background="#FF1493"
+        android:background="#DF00FE"
         android:text="@string/Msg3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,13 +59,12 @@
         android:id="@+id/button2"
         android:layout_width="210dp"
         android:layout_height="54dp"
-        android:background="#DF00FE"
+        android:layout_marginTop="24dp"
+        android:background="#FF1493"
         android:text="@string/Msg4"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
