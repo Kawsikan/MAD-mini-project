@@ -3,6 +3,7 @@ package com.example.catalogue;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -25,11 +26,21 @@ public class CatalogueListActivity extends AppCompatActivity {
     TextView name,email, id;
     Button signOut;
     GoogleSignInClient mGoogleSignInClient;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue_list);
+
+        button = (Button) findViewById(R.id.button6);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+
+            }
+        });
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -79,4 +90,22 @@ public class CatalogueListActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    public void openNewActivity(){
+        Intent intent = new Intent(this, TaskListActivity.class);
+
+        // Toast.makeText(MainActivity.this,  editName.getText(), Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+
+        startActivity(intent);
+    }
 }
+
+
+
+
+
+
+
+
