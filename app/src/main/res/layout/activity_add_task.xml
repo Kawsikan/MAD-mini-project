@@ -19,14 +19,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTask2"
+        android:id="@+id/editTaskTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Msg10"
+        android:inputType="text"
+        android:hint="@string/Msg10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -42,19 +42,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTask3"
+        android:id="@+id/editTaskDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Msg12"
+        android:inputType="text"
+        android:hint="@string/Msg12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_add_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
