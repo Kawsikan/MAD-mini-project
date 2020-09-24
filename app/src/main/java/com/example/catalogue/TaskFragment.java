@@ -1,14 +1,21 @@
 package com.example.catalogue;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -102,5 +109,70 @@ public class TaskFragment extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+
+        if (item.getTitle().equals("Update")){
+            showUpdateDialog(adapter.getRef(item.getOrder()).getKey(),adapter.getItem(item.getOrder()));
+        }else if (item.getTitle().equals("Delete")){
+            deleteTask(adapter.getRef(item.getOrder()).getKey());
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    private void deleteTask(String key) {
+        taskDb.child(key).removeValue();
+    }
+
+    private void showUpdateDialog(final String key, Task item) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Update");
+        builder.setMessage("Please update the fields");
+
+        View update_layout = LayoutInflater.from(getActivity()).inflate(R.layout.customtask_layout,null);
+
+        final EditText edit_update_taskTitle = update_layout.findViewById(R.id.edit_update_taskTitle);
+        final EditText edit_update_taskDescription = update_layout.findViewById(R.id.edit_update_taskDescription);
+
+        edit_update_taskTitle.setText(item.getTaskTitle());
+        edit_update_taskDescription.setText(item.getTaskDescription());
+
+        builder.setView(update_layout);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String taskTitle = edit_update_taskTitle.getText().toString();
+                String taskDescription = edit_update_taskDescription.getText().toString();
+
+                Task task = new Task(taskTitle,taskDescription);
+                taskDb.child(key).setValue(task);
+
+                Toast.makeText(getActivity(), "Task is updated!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.task_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.delete_all){
+            taskDb.removeValue();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

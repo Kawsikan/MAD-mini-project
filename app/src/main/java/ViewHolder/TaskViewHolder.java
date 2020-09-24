@@ -1,5 +1,6 @@
 package ViewHolder;
 
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.catalogue.R;
 
-public class TaskViewHolder extends RecyclerView.ViewHolder {
+public class TaskViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
     public TextView text_taskTitle, text_taskDescription;
 
@@ -17,5 +18,14 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
         text_taskTitle = itemView.findViewById(R.id.text_taskTitle);
         text_taskDescription = itemView.findViewById(R.id.text_taskDescription);
+
+        itemView.setOnCreateContextMenuListener(this);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        contextMenu.setHeaderTitle("Select menu");
+        contextMenu.add(0,0,getAdapterPosition(),"Update");
+        contextMenu.add(0,1,getAdapterPosition(),"Delete");
     }
 }
