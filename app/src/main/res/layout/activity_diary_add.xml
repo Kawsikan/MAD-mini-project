@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".diaryAdd">
+
+
+    <EditText
+        android:id="@+id/diaryTitle"
+
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="144dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+
+        android:hint="Title"
+        android:inputType="text"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/data_button"
+        android:text="Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryTitle" />
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="126dp"
+        android:layout_toRightOf="@id/dateBtn"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dateBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dateBtn" />
+
+    <EditText
+        android:id="@+id/diaryDis"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/multi_border"
+        android:ems="10"
+        android:gravity="bottom"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateBtn" />
+
+    <Button
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/diary_save_btn"
+        android:text="Save"
+        android:textColor="#F1EDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryDis"
+        app:layout_constraintVertical_bias="0.395" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/diary_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="4dp" >
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="ADD DIARY"
+        android:textColor="@color/color4"
+        android:textSize="35sp"
+        android:textStyle="bold" /></com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

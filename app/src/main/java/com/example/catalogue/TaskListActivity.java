@@ -8,7 +8,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -16,12 +18,13 @@ import com.google.android.material.navigation.NavigationView;
 public class TaskListActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-
+    int checkId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
-
+        Intent intent = getIntent();
+        checkId = intent.getIntExtra("ID_V",1);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -34,13 +37,38 @@ public class TaskListActivity extends AppCompatActivity implements NavigationVie
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null){
+
+        if(savedInstanceState == null && checkId == 1){
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new TaskFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_task);
+        Log.i("Lifecycle","Oncreate called" + checkId);
+        }
+        else if(R.id.nav_diary == checkId){
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new DiaryFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_diary);
         }
     }
+    public void onStart() {
 
+
+        super.onStart();
+        Log.i("Lifecycle","OnStart called(");
+
+        System.out.println("Hello iam");
+    }
+    public void onResume(){
+
+        super.onResume();
+        Log.i("Lifecycle","onResume called()");
+    }
+    public void onRestart(){
+
+        super.onRestart();
+        Log.i("Lifecycle","onRestart called()");
+    }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
