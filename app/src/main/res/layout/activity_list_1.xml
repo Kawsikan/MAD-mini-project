@@ -7,11 +7,13 @@
     tools:context=".List_1">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_1_recycler"
         android:layout_width="409dp"
         android:layout_height="601dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="27dp" />
+        tools:layout_editor_absoluteY="27dp"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/song_floating_add_btn"
@@ -24,6 +26,6 @@
         app:backgroundTint="@color/colorFloting"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+       android:src="@drawable/ic_baseline_add_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
