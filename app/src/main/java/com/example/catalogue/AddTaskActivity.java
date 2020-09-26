@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -68,6 +69,9 @@ public class AddTaskActivity extends AppCompatActivity {
                     Toast.makeText(AddTaskActivity.this, "Task is added.", Toast.LENGTH_SHORT).show();
                     editTaskTitle.setText("");
                     editTaskDescription.setText("");
+                    //Code added on 25th to go back to task fragment
+                    //Intent intent = new Intent(getParent(),TaskFragment.class);
+                    //startActivity(getIntent());
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -78,6 +82,8 @@ public class AddTaskActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "All fields should be filled.", Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
 }

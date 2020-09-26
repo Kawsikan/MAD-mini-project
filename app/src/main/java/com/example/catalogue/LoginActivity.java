@@ -73,16 +73,19 @@ public class LoginActivity extends AppCompatActivity {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
-           // updateUI(null);
+            // updateUI(null);
         }
     }
 
     //    @Override
     //  protected void onStart(){
     //    super.onStart();
-        // Check for existing Google Sign In account, if the user is already signed in
+    // Check for existing Google Sign In account, if the user is already signed in
     // the GoogleSignInAccount will be non-null.
-      //  GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        //updateUI(account);
+    //  GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+    //updateUI(account);
     //}
 }
+
+
+
