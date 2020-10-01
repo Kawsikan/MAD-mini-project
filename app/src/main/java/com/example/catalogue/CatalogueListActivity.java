@@ -19,9 +19,67 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CatalogueListActivity extends AppCompatActivity {
 
+    ImageView imageView;
+    TextView name,email,id;
+    Button signOut;
+    Button button;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_catalogue_list);
+
+        signOut = findViewById(R.id.buttonsignout);
+        name = findViewById(R.id.textName);
+        email = findViewById(R.id.textEmail);
+        imageView = findViewById(R.id.imageViewdp);
+        id  =   findViewById(R.id.textID);
+
+        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(this);
+
+        if (googleSignInAccount!=null){
+            String personId = googleSignInAccount.getId();
+            id.setText(personId);
+            name.setText(googleSignInAccount.getDisplayName());
+            email.setText(googleSignInAccount.getEmail());
+            Uri personPhoto = googleSignInAccount.getPhotoUrl();
+            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
+
+        }
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        button = (Button) findViewById(R.id.button6);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+
+            }
+        });
+    }
+    public void openNewActivity(){
+        Intent intent = new Intent(this, TaskListActivity.class);
+
+        // Toast.makeText(MainActivity.this,  editName.getText(), Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
+
+        startActivity(intent);
+    }
+
+}
+/*
     ImageView imageView;
     TextView name,email, id;
     Button signOut;
@@ -101,11 +159,4 @@ public class CatalogueListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
-
-
-
-
-
-
-
+        */

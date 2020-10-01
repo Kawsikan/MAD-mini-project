@@ -22,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.concurrent.Executor;
 
@@ -65,7 +66,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.buttonsignout:
-                        signOut();
+                        mGoogleSignInClient.signOut();
                         break;
                 }
             }
@@ -83,21 +84,21 @@ public class ProfileFragment extends Fragment {
             id.setText(personId);
             Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
         }
+        //Changed out previous sign in method
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         return view;
     }
 
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener((Executor) this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(getActivity(),"Signed Out Successfully!", Toast.LENGTH_LONG).show();
-                        getActivity().finish();
-                    }
-                });
-    }
+
 
     public void openNewActivity(){
         Intent intent = new Intent(getActivity(), TaskListActivity.class);
