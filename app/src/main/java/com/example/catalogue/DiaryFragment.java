@@ -12,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class DiaryFragment extends Fragment {
-    private Button diaryAdd;
+    private FloatingActionButton diaryAdd;
     private TextView txt;
     private View v;
 

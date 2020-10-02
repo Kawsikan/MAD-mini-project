@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class diaryAdd extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
@@ -26,6 +27,7 @@ public class diaryAdd extends AppCompatActivity implements DatePickerDialog.OnDa
     TextView dateTxt,date;
     DatabaseReference reff;
     Diary diary;
+    String currentDateTimeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +54,15 @@ public class diaryAdd extends AppCompatActivity implements DatePickerDialog.OnDa
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
+                String ID = reff.push().getKey();
+                diary.setId(ID);
                 diary.setTitle(diaryTitle.getText().toString().trim());
                 diary.setDate(date.getText().toString().trim());
                 diary.setDescription(diaryDis.getText().toString().trim());
-                reff.push().setValue(diary);
+                diary.setTime(currentDateTimeString);
+                reff.child(ID).setValue(diary);
+                System.out.println("sdadadas" + currentDateTimeString);
                 Toast.makeText(diaryAdd.this, "Diary Saved Successfully", Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getApplicationContext(),TaskListActivity.class);

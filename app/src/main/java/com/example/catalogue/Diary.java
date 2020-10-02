@@ -1,13 +1,30 @@
 package com.example.catalogue;
 
 public class Diary {
-
+    private String id;
     private String title;
     private String date;
     private String description;
+    private String time;
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
 
     public Diary(){
 
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setTitle(String title) {
