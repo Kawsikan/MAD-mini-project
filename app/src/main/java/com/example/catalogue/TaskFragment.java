@@ -44,16 +44,16 @@ public class TaskFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_task,container,false);
+        View view = inflater.inflate(R.layout.fragment_task, container, false);
         //button to add new task
-       // button = view.findViewById(R.id.button3);
+        // button = view.findViewById(R.id.button3);
 
-     //   button.setOnClickListener(new View.OnClickListener() {
-      //      @Override
-       //     public void onClick(View view) {
-       //        startActivity(new Intent(getActivity(),AddTaskActivity.class));
-     //     }
-     //   });
+        //   button.setOnClickListener(new View.OnClickListener() {
+        //      @Override
+        //     public void onClick(View view) {
+        //        startActivity(new Intent(getActivity(),AddTaskActivity.class));
+        //     }
+        //   });
 
         recyclerView = view.findViewById(R.id.recyclerViewTask);
         fab = view.findViewById(R.id.fab);
@@ -61,7 +61,7 @@ public class TaskFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),AddTaskActivity.class));
+                startActivity(new Intent(getActivity(), AddTaskActivity.class));
             }
         });
 
@@ -77,7 +77,7 @@ public class TaskFragment extends Fragment {
 
     private void showTask() {
         options = new FirebaseRecyclerOptions.Builder<Task>()
-                .setQuery(taskDb,Task.class)
+                .setQuery(taskDb, Task.class)
                 .build();
 
         adapter = new FirebaseRecyclerAdapter<Task, TaskViewHolder>(options) {
@@ -85,6 +85,8 @@ public class TaskFragment extends Fragment {
             protected void onBindViewHolder(@NonNull TaskViewHolder taskViewHolder, int i, @NonNull Task task) {
                 taskViewHolder.text_taskTitle.setText(task.getTaskTitle());
                 taskViewHolder.text_taskDescription.setText(task.getTaskDescription());
+                taskViewHolder.text_taskDate.setText(task.getDate());
+                taskViewHolder.text_taskTime.setText(task.getTime());
             }
 
             @NonNull
@@ -92,7 +94,7 @@ public class TaskFragment extends Fragment {
             public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
                 View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.task_row,parent,false);
+                        .inflate(R.layout.task_row, parent, false);
                 return new TaskViewHolder(itemView);
             }
         };
@@ -114,9 +116,9 @@ public class TaskFragment extends Fragment {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
 
-        if (item.getTitle().equals("Update")){
-            showUpdateDialog(adapter.getRef(item.getOrder()).getKey(),adapter.getItem(item.getOrder()));
-        }else if (item.getTitle().equals("Delete")){
+        if (item.getTitle().equals("Update")) {
+            showUpdateDialog(adapter.getRef(item.getOrder()).getKey(), adapter.getItem(item.getOrder()));
+        } else if (item.getTitle().equals("Delete")) {
             deleteTask(adapter.getRef(item.getOrder()).getKey());
         }
         return super.onContextItemSelected(item);
@@ -131,13 +133,17 @@ public class TaskFragment extends Fragment {
         builder.setTitle("Update");
         builder.setMessage("Please update the fields");
 
-        View update_layout = LayoutInflater.from(getActivity()).inflate(R.layout.customtask_layout,null);
+        View update_layout = LayoutInflater.from(getActivity()).inflate(R.layout.customtask_layout, null);
 
         final EditText edit_update_taskTitle = update_layout.findViewById(R.id.edit_update_taskTitle);
         final EditText edit_update_taskDescription = update_layout.findViewById(R.id.edit_update_taskDescription);
+        final EditText edit_update_taskDate = update_layout.findViewById(R.id.edit_update_taskDate);
+        final EditText edit_update_taskTime = update_layout.findViewById(R.id.edit_update_taskTime);
 
         edit_update_taskTitle.setText(item.getTaskTitle());
         edit_update_taskDescription.setText(item.getTaskDescription());
+        edit_update_taskDate.setText(item.getDate());
+        edit_update_taskTime.setText(item.getTime());
 
         builder.setView(update_layout);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -145,8 +151,10 @@ public class TaskFragment extends Fragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String taskTitle = edit_update_taskTitle.getText().toString();
                 String taskDescription = edit_update_taskDescription.getText().toString();
+                String taskDate = edit_update_taskDate.getText().toString();
+                String taskTime = edit_update_taskTime.getText().toString();
 
-                Task task = new Task(taskTitle,taskDescription);
+                Task task = new Task(taskTitle, taskDescription, taskDate, taskTime);
                 taskDb.child(key).setValue(task);
 
                 Toast.makeText(getActivity(), "Task is updated!", Toast.LENGTH_SHORT).show();
@@ -170,7 +178,7 @@ public class TaskFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.delete_all){
+        if (item.getItemId() == R.id.delete_all) {
             taskDb.removeValue();
         }
         return super.onOptionsItemSelected(item);
