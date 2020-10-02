@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 public class Wish_ListFragment extends Fragment {
 
     View v;
-    CardView c1;
+    CardView c1,c2;
     TextView txt_songs;
     @Nullable
     @Override
@@ -24,6 +24,8 @@ public class Wish_ListFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_wishlist,container,false);
         txt_songs = v.findViewById(R.id.txt_wish_songs);
         c1 = v.findViewById(R.id.wish_songs);
+        c2 = v.findViewById(R.id.wish_movies);
+
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,6 +34,16 @@ public class Wish_ListFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        c2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),List_2.class);
+                Toast.makeText(getContext(),"Movie List",Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
+
 
         return v;
     }

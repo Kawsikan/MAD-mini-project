@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorFloting">
+
+    <ImageView
+        android:id="@+id/moviePopWindow"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/ic_baseline_local_movies_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <EditText
+        android:id="@+id/newMovieName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Movie Name"
+        android:textColorHint="@color/color4"
+        android:textColor="@color/color4"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/moviePopWindow"
+        tools:layout_editor_absoluteX="-66dp"
+        android:textSize="24sp"/>
+    <EditText
+        android:id="@+id/newMovieWriter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/color4"
+        android:textColor="@color/color4"
+        android:hint="Year"
+        android:inputType="date"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/newMovieName"
+        tools:layout_editor_absoluteX="-66dp"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/movie_save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Save"
+        android:textColor="@color/color4"
+        android:background="@drawable/song_add_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newMovieWriter"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <Button
+        android:id="@+id/movie_cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Cancel"
+        android:textColor="@color/color4"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/song_add_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newMovieWriter"
+        app:layout_constraintVertical_bias="0.103" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
