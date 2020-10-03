@@ -7,22 +7,84 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
-public class DiaryFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class DiaryFragment extends Fragment implements diaryAdapter.OnItemClickListener {
     private FloatingActionButton diaryAdd;
     private TextView txt;
     private View v;
+    private RecyclerView recyclerView;
+    List<Diary> mDiary;
+    FirebaseStorage mStorage;
+    DatabaseReference ref,mDatabaseRef;
+    diaryAdapter mAdapter;
 
-    @Nullable
+
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_diary, container, false);
+
+
+        recyclerView = (RecyclerView)v.findViewById(R.id.diary_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+
+        mDiary = new ArrayList<>();
+        mStorage = FirebaseStorage.getInstance();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Diary");
+        mAdapter = new diaryAdapter(v.getContext(),mDiary);
+        recyclerView.setAdapter(mAdapter);
+
+
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                mDiary.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    Diary diary = postSnapshot.getValue(Diary.class);
+                    diary.setId(postSnapshot.getKey());
+                    mDiary.add(diary);
+
+                }
+                mAdapter.notifyDataSetChanged();
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                Toast.makeText(v.getContext(),databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        mAdapter.setOnItemClickListener(DiaryFragment.this);
+
+
+
+
+
+
+
+
+
 
         diaryAdd = v.findViewById(R.id.diaryAddBtn);
 
@@ -36,5 +98,25 @@ public class DiaryFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
+        Toast.makeText(v.getContext(), "Open Diary", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onWhateverClick(int position) {
+        Toast.makeText(v.getContext(), "Edited", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+
+        Diary selectedDiary = mDiary.get(position);
+        String selectedKey =    selectedDiary.getId();
+        mDatabaseRef.child(selectedKey).removeValue();
+        Toast.makeText(v.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
     }
 }
