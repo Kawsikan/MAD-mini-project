@@ -8,7 +8,7 @@
     </style>
     
     <style name="SplashScreen" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowBackground">@drawable/welcome</item>
+        <item name="android:windowBackground">@drawable/icon2</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
