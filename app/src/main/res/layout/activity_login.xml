@@ -33,20 +33,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
 
-    <com.google.android.gms.common.SignInButton
+    <com.shobhitpuri.custombuttons.GoogleSignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="265dp"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
+        app:isDarkTheme="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints">
 
-    </com.google.android.gms.common.SignInButton>
+    </com.shobhitpuri.custombuttons.GoogleSignInButton>
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -57,6 +60,6 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconnew" />
+        app:srcCompat="@drawable/newlogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

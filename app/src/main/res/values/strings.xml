@@ -10,12 +10,12 @@
     <string name="Msg8">Add</string>
     <string name="Msg9">Task</string>
     <string name="Msg10">Enter Task</string>
-    <string name="Msg11">Remind me</string>
-    <string name="Msg12">Date</string>
+    <string name="Msg11">Description</string>
+    <string name="Msg12">Description</string>
     <string name="Msg13">save</string>
     <string name="Msg16">Catalogue</string>
     <string name="Msg17">Task</string>
-    <string name="Msg18">Diary</string>
+    <string name="Msg18">Go</string>
     <string name="Msg19">WishList</string>
 
     <string name="MyDiary">My Diary</string>

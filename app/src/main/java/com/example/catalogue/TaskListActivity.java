@@ -57,6 +57,10 @@ public class TaskListActivity extends AppCompatActivity implements NavigationVie
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Wish_ListFragment()).commit();
                 break;
+            case R.id.nav_profile:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ProfileFragment()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
