@@ -12,17 +12,17 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
         android:layout_weight="0"
         android:text="@string/Msg9"
         android:textSize="24sp" />
 
     <EditText
         android:id="@+id/editTaskTitle"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="32dp"
         android:layout_weight="0"
@@ -39,7 +39,7 @@
             android:id="@+id/in_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="64dp"
             android:layout_weight="0"
@@ -47,15 +47,13 @@
 
         <Button
             android:id="@+id/btn_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="0"
-            android:background="#b300b3"
-            android:text="SELECT DATE"
-            android:textColor="#ffffff" />
+            android:background="@drawable/calendar" />
 
     </LinearLayout>
 
@@ -68,7 +66,7 @@
             android:id="@+id/in_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="64dp"
             android:layout_weight="0"
@@ -76,15 +74,13 @@
 
         <Button
             android:id="@+id/btn_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="0"
-            android:background="#b300b3"
-            android:text="SELECT TIME"
-            android:textColor="#ffffff" />
+            android:background="@drawable/ic_clock" />
 
     </LinearLayout>
 
@@ -92,7 +88,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_weight="0"
         android:text="@string/Msg11"
@@ -100,27 +96,22 @@
 
     <EditText
         android:id="@+id/editTaskDescription"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_weight="1"
-        android:hint="@string/Msg12"
-        android:inputType="text" />
+        android:layout_marginEnd="32dp"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/button_add_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:layout_weight="0"
-        android:background="#7C4DFF"
-        android:text="@string/Msg13"
-        android:textColor="#ffffff" />
+        android:background="@drawable/btn1" />
 
 
 </LinearLayout>
