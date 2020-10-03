@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".diaryUpdate">
+
+
+    <EditText
+        android:id="@+id/diaryUpdateTitle"
+
+        android:layout_width="310dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="144dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+
+        android:hint="Title"
+        android:inputType="text"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dateUpdateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/data_button"
+        android:text="Date"
+        app:layout_constraintBottom_toTopOf="@+id/diaryUpdateDis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryUpdateTitle" />
+
+    <TextView
+        android:id="@+id/dateUpdateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginEnd="126dp"
+        android:layout_toRightOf="@id/dateUpdateBtn"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dateUpdateBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dateUpdateBtn" />
+
+    <EditText
+        android:id="@+id/diaryUpdateDis"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/multi_border"
+        android:ems="10"
+        android:gravity="bottom"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        app:layout_constraintBottom_toTopOf="@+id/save_Update_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateUpdateBtn" />
+
+    <Button
+        android:id="@+id/save_Update_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/diary_save_btn"
+        android:text="Save"
+        android:textColor="#F1EDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diaryUpdateDis"
+        app:layout_constraintVertical_bias="0.238" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/diary_header"
+        app:layout_constraintBottom_toTopOf="@+id/diaryUpdateTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="EDIT YOUR DIARY"
+            android:textColor="@color/color4"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
