@@ -2,6 +2,7 @@ package com.example.catalogue;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,10 +105,42 @@ public class DiaryFragment extends Fragment implements diaryAdapter.OnItemClickL
     public void onItemClick(int position) {
 
         Toast.makeText(v.getContext(), "Open Diary", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(v.getContext(),diaryshow.class);
+        Diary selectedDiary = mDiary.get(position);
+        String selectedKey =  selectedDiary.getId();
+        String title = selectedDiary.getTitle();
+        String date = selectedDiary.getDate();
+        String time = selectedDiary.getTime();
+        String des = selectedDiary.getDescription();
+
+
+        intent.putExtra("title",title);
+        intent.putExtra("date",date);
+        intent.putExtra("time",time);
+        intent.putExtra("des",des);
+
+        startActivity(intent);
+
     }
 
     @Override
     public void onWhateverClick(int position) {
+
+        Intent intent = new Intent(v.getContext(),diaryUpdate.class);
+        Diary selectedDiary = mDiary.get(position);
+        String selectedKey =  selectedDiary.getId();
+        String title = selectedDiary.getTitle();
+        String date = selectedDiary.getDate();
+        String time = selectedDiary.getTime();
+        String des = selectedDiary.getDescription();
+
+        intent.putExtra("key",selectedKey);
+        intent.putExtra("title",title);
+        intent.putExtra("date",date);
+        intent.putExtra("time",time);
+        intent.putExtra("des",des);
+
+        startActivity(intent);
         Toast.makeText(v.getContext(), "Edited", Toast.LENGTH_SHORT).show();
     }
 
