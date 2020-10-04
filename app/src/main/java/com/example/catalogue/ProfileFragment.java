@@ -29,7 +29,7 @@ import java.util.concurrent.Executor;
 public class ProfileFragment extends Fragment {
 
     ImageView imageView;
-    TextView name,email, id;
+    TextView name, email, id;
     Button signOut;
     GoogleSignInClient mGoogleSignInClient;
     Button button;
@@ -37,7 +37,7 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_profile,container,false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         button = (Button) view.findViewById(R.id.button6);
         button.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +57,9 @@ public class ProfileFragment extends Fragment {
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
         imageView = view.findViewById(R.id.imageViewdp);
-        name    =   view.findViewById(R.id.textName);
+        name = view.findViewById(R.id.textName);
         email = view.findViewById(R.id.textEmail);
-        id  =   view.findViewById(R.id.textID);
+        id = view.findViewById(R.id.textID);
         signOut = view.findViewById(R.id.buttonsignout);
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +89,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 Toast.makeText(getActivity(), "Signed Out Successfully!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 /*oct 03*/
@@ -102,12 +102,8 @@ public class ProfileFragment extends Fragment {
     }
 
 
-
-    public void openNewActivity(){
+    public void openNewActivity() {
         Intent intent = new Intent(getActivity(), TaskListActivity.class);
-
-        // Toast.makeText(MainActivity.this,  editName.getText(), Toast.LENGTH_SHORT).show();
-
         Toast.makeText(getActivity(), "Welcome", Toast.LENGTH_SHORT).show();
 
         startActivity(intent);

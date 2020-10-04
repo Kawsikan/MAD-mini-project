@@ -29,22 +29,22 @@ public class TaskListActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer, toolbar,
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState == null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new TaskFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_task);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new TaskFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_task);
         }
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.nav_task:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new TaskFragment()).commit();
@@ -68,10 +68,10 @@ public class TaskListActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)){
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }else {
-        super.onBackPressed();
+        } else {
+            super.onBackPressed();
         }
     }
 
