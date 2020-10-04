@@ -2,161 +2,198 @@ package com.example.catalogue;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
+import android.widget.EditText;
 
 public class CatalogueListActivity extends AppCompatActivity {
 
-    ImageView imageView;
-    TextView name,email,id;
-    Button signOut;
-    Button button;
+    Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_0,btn_Add,btn_Sub,btn_Mul,btn_Div,btn_calc,btn_dec,btn_clear;
+    EditText ed1;
+
+    float Value1, Value2;
+    boolean mAddition, mSubtract, mMultiplication, mDivision ;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue_list);
 
-        signOut = findViewById(R.id.buttonsignout);
-        name = findViewById(R.id.textName);
-        email = findViewById(R.id.textEmail);
-        imageView = findViewById(R.id.imageViewdp);
-        id  =   findViewById(R.id.textID);
+        btn_0 = (Button) findViewById(R.id.btn_0);
+        btn_1 = (Button) findViewById(R.id.btn_1);
+        btn_2 = (Button) findViewById(R.id.btn_2);
+        btn_3 = (Button) findViewById(R.id.btn_3);
+        btn_4 = (Button) findViewById(R.id.btn_4);
+        btn_5 = (Button) findViewById(R.id.btn_5);
+        btn_6 = (Button) findViewById(R.id.btn_6);
+        btn_7 = (Button) findViewById(R.id.btn_7);
+        btn_8 = (Button) findViewById(R.id.btn_8);
+        btn_9 = (Button) findViewById(R.id.btn_9);
+        btn_Add = (Button) findViewById(R.id.btn_Add);
+        btn_Div = (Button) findViewById(R.id.btn_Div);
+        btn_Sub = (Button) findViewById(R.id.btn_Sub);
+        btn_Mul = (Button) findViewById(R.id.btn_Mul);
+        btn_calc = (Button) findViewById(R.id.btn_calc);
+        btn_dec = (Button) findViewById(R.id.btn_dec);
+        btn_clear = (Button) findViewById(R.id.btn_clear);
+        ed1 = (EditText) findViewById(R.id.edText1);
 
-        GoogleSignInAccount googleSignInAccount = GoogleSignIn.getLastSignedInAccount(this);
-
-        if (googleSignInAccount!=null){
-            String personId = googleSignInAccount.getId();
-            id.setText(personId);
-            name.setText(googleSignInAccount.getDisplayName());
-            email.setText(googleSignInAccount.getEmail());
-            Uri personPhoto = googleSignInAccount.getPhotoUrl();
-            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
-
-        }
-
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        button = (Button) findViewById(R.id.button6);
-        button.setOnClickListener(new View.OnClickListener() {
+        btn_0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNewActivity();
-
+                ed1.setText(ed1.getText()+"0");
             }
         });
-    }
-    public void openNewActivity(){
-        Intent intent = new Intent(this, TaskListActivity.class);
 
-        // Toast.makeText(MainActivity.this,  editName.getText(), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
-
-        startActivity(intent);
-    }
-
-}
-/*
-    ImageView imageView;
-    TextView name,email, id;
-    Button signOut;
-    GoogleSignInClient mGoogleSignInClient;
-    Button button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_catalogue_list);
-
-        button = (Button) findViewById(R.id.button6);
-        button.setOnClickListener(new View.OnClickListener() {
+        btn_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNewActivity();
-
+                ed1.setText(ed1.getText()+"1");
             }
         });
 
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        imageView = findViewById(R.id.imageViewdp);
-        name    =   findViewById(R.id.textName);
-        email = findViewById(R.id.textEmail);
-        id  =   findViewById(R.id.textID);
-        signOut = findViewById(R.id.buttonsignout);
-        signOut.setOnClickListener(new View.OnClickListener() {
+        btn_2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.buttonsignout:
-                        signOut();
-                        break;
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"2");
+            }
+        });
+
+        btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"3");
+            }
+        });
+
+        btn_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"4");
+            }
+        });
+
+        btn_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"5");
+            }
+        });
+
+        btn_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"6");
+            }
+        });
+
+        btn_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"7");
+            }
+        });
+
+        btn_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"8");
+            }
+        });
+
+        btn_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+"9");
+            }
+        });
+
+        btn_dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText(ed1.getText()+".");
+            }
+        });
+
+        btn_Add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (ed1 == null){
+                    ed1.setText("");
+                }else {
+                    Value1 = Float.parseFloat(ed1.getText() + "");
+                    mAddition = true;
+                    ed1.setText(null);
                 }
             }
         });
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
+        btn_Sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText() + "");
+                mSubtract = true ;
+                ed1.setText(null);
+            }
+        });
 
-            name.setText(personName);
-            email.setText(personEmail);
-            id.setText(personId);
-            Glide.with(this).load(String.valueOf(personPhoto)).into(imageView);
-        }
+        btn_Mul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText() + "");
+                mMultiplication = true ;
+                ed1.setText(null);
+            }
+        });
 
+        btn_Div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value1 = Float.parseFloat(ed1.getText()+"");
+                mDivision = true ;
+                ed1.setText(null);
+            }
+        });
+
+        btn_calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Value2 = Float.parseFloat(ed1.getText() + "");
+
+                if (mAddition == true){
+
+                    ed1.setText(Value1 + Value2 +"");
+                    mAddition=false;
+                }
+
+
+                if (mSubtract == true){
+                    ed1.setText(Value1 - Value2 +"");
+                    mSubtract=false;
+                }
+
+                if (mMultiplication == true){
+                    ed1.setText(Value1 * Value2 + "");
+                    mMultiplication=false;
+                }
+
+                if (mDivision == true){
+                    ed1.setText(Value1 / Value2+"");
+                    mDivision=false;
+                }
+            }
+        });
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ed1.setText("");
+            }
+        });
     }
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(CatalogueListActivity.this,"Signed Out Successfully!", Toast.LENGTH_LONG).show();
-                        finish();
-                    }
-                });
-    }
 
-    public void openNewActivity(){
-        Intent intent = new Intent(this, TaskListActivity.class);
-
-        // Toast.makeText(MainActivity.this,  editName.getText(), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show();
-
-        startActivity(intent);
-    }
 }
-        */

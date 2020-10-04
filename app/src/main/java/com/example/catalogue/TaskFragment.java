@@ -32,7 +32,7 @@ import ViewHolder.TaskViewHolder;
 public class TaskFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private FloatingActionButton fab;
+    private FloatingActionButton fab ,calc;
 
     FirebaseDatabase database;
     DatabaseReference taskDb;
@@ -64,7 +64,15 @@ public class TaskFragment extends Fragment {
                 startActivity(new Intent(getActivity(), AddTaskActivity.class));
             }
         });
-
+        //on 4th oct
+        calc = view.findViewById(R.id.calc);
+        calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), CatalogueListActivity.class));
+            }
+        });
+        //on 4th oct ---
         database = FirebaseDatabase.getInstance();
         taskDb = database.getReference("Task");
 
