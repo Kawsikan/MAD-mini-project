@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +38,7 @@ public class DiaryFragment extends Fragment implements diaryAdapter.OnItemClickL
     FirebaseStorage mStorage;
     DatabaseReference ref,mDatabaseRef;
     diaryAdapter mAdapter;
+    Button button;
 
 
     @Override
@@ -101,6 +104,7 @@ public class DiaryFragment extends Fragment implements diaryAdapter.OnItemClickL
         return v;
     }
 
+
     @Override
     public void onItemClick(int position) {
 
@@ -148,8 +152,11 @@ public class DiaryFragment extends Fragment implements diaryAdapter.OnItemClickL
     public void onDeleteClick(int position) {
 
         Diary selectedDiary = mDiary.get(position);
-        String selectedKey =    selectedDiary.getId();
+        String selectedKey = selectedDiary.getId();
         mDatabaseRef.child(selectedKey).removeValue();
         Toast.makeText(v.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
+
+
     }
+
 }
